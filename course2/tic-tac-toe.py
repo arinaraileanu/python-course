@@ -9,12 +9,14 @@ while 1:
         lin_col = lin_col.split(" ")
         lin = lin_col[0]
         col = lin_col[1]
-        if (Map[int(lin)][int(col)] == '_'):
+        if ((not lin.isdigit()) or (not col.isdigit()) or int(lin) > 2
+                or int(col) > 2 or int(lin) < 0 or int(col) < 0 or Map[int(lin)][int(col)] != '_'):
+            print("Introdu o pozitie valida.")
+        else:
             Map[int(lin)][int(col)] = 'X'
             moves = moves + 1
             break
-        else:
-            print("Introdu o pozitie valida.")
+
     for i in Map:
         for j in i:
             print(" " + j + " ", end='')
@@ -62,4 +64,5 @@ while 1:
     if Map[0][2] == Map[1][1] == Map[2][0] == 'O':
         print("O a castigat!")
         break
+
 
